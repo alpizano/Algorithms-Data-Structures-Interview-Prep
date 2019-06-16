@@ -14,14 +14,15 @@ public class TwoSum {
 		}
 		
 		for(Integer i : hashSum.keySet()) {
-			Integer comp = target - i;			 
+			Integer comp = target - i;		
+			 
 			Integer compIndex = hashSum.get(comp);
-			
-			//if(i + comp == target) {
-				//ans[0] = hashSum.get(i);
-				//ans[1] = hashSum.get(comp);	
-			//}
-			System.out.println("value is: " + i + " at index: " + hashSum.get(i) + " w/ complement: " + comp);
+			//System.out.println("Test null: " + compIndex);
+			if(hashSum.get(comp) != null) {
+				ans[0] = hashSum.get(i);
+				ans[1] = hashSum.get(comp);	
+			}
+			System.out.println("value is: " + i + " at index: " + hashSum.get(i) + ", complement: " + comp);
 		}
 		
 		//System.out.println("--------------------------");
@@ -34,7 +35,7 @@ public class TwoSum {
 
 	public static void main(String args[]) {
 
-    int[] newArr = new int[] {5,23,1,99,7,69};
+    int[] newArr = new int[] {5, 23, 1, 99, 7, 69};
     int[] retArr = new int[6];
     
     retArr = TwoSum.twoSum(newArr,30);

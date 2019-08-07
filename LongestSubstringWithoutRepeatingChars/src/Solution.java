@@ -1,43 +1,56 @@
 
 public class Solution {
 	  public void lengthOfLongestSubstring(String s) {
-		 int counter1 = 0;
-	     int counter2 = 0; // records maximum length of substring
-	     String memory = "";
-	    //char memory = 0;
-	     
-	     for(int i=0; i < s.length(); i++) {
-	    	 
-	    	 for(int j=1; j < s.length(); j++)  {
-	    		 if(i != j) {
-	    		 memory = memory + s.charAt(i) + s.charAt(j);
-	    		 counter1++;
-	    		 counter2 = counter1;
-	    		 if(counter1 > counter2) {
-	    		 counter2++;
-	    		 
-	    		 }	    		 
-	    	 }	 
-	     }
-	    	 memory = "";
-	    	 counter1 = 0;
-	     
-	     
-	    }
-	     
-	     
-	     System.out.print("Maximum length is: " + counter2);
-
-	     
+		 int currCounter = 0;
+	     int memCounter = 0; 
+	     String currString = "";
+	     String memString = "";     
+	     int i = 0;
+	     int j = i+1;
+     
+	   while (i < s.length() -1) {
+		   currString = Character.toString(s.charAt(i));	
+		   currCounter++;
+	   while(j < s.length()-1) {
+		   currString = currString + s.charAt(j);
+		   currCounter++;
+		   j++;
+		   if (currString.substring(0,currCounter-1).contains(Character.toString(s.charAt(j)))) 
+		   {
+			   memString = currString.substring(0,currString.length()-1);
+			   memCounter = currCounter-1;
+			   System.out.println("string memory is: " + memString + " when i= "+ i + " and j = " + j);
+			   System.out.println("They are equal at i=" + i + " and j= " + j);
+			   System.out.println("Counter value is: " + memCounter);
+			   
+			   currString = "";
+			   i = j-1;
+			   j++;
+			   System.out.println();
+			  
+			   
+			   currCounter = 0;
+			   break;		   
+		   }
+		   j++;
+	   }
+	   i++; 
+	  }	   
+	   System.out.println("Longest substring word is: " + memString);
+	   System.out.println("Longest substring length is: " + memCounter);
+	   System.out.println("------------------------------------------");
 	  }
 	  
 	  public static void main(String[] args) {
-		  String test1 =  "abcabcbb";
+		  String word1 =  "abcabcbb";
+		  String word2  = "bbbbb";
+		  String word3 = "pwwkew";
 		  
 		  Solution func = new Solution(); // instantiate object to run method of class
 		 
-		 //System.out.println(func.lengthOfLongestSubstring(test1));
-		  func.lengthOfLongestSubstring(test1);
+		// func.lengthOfLongestSubstring(word1);
+		 // func.lengthOfLongestSubstring(word2);
+		 func.lengthOfLongestSubstring(word3);
 
 }
 }

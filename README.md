@@ -5,6 +5,7 @@ These are a collection of leetcode problems I have completed in order to prepare
 
 # Two Sum (Easy)
 [Two Sum - Brute Force](https://github.com/alpizano/leetcode-problems/blob/master/TwoSumBruteForce/src/TwoSum.java)
+
 [Two Sum - With HashSet](https://github.com/alpizano/leetcode-problems/blob/master/TwoSumWithHashTable/src/TwoSum.java)
 
 # Add Two Numbers (Medium)

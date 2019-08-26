@@ -23,41 +23,31 @@ public class Solution {
 			while (i < s.length() - 1) {
 				currString = Character.toString(s.charAt(i));
 				currCounter++;
-
-				while (j <=s.length() - 1) {
+				while (j <= s.length() - 1) {
 					currString = currString + s.charAt(j);
-					currCounter++; // assume to be equal
-					
+					currCounter++;
 					if (currString.substring(0, currString.length() - 1).contains(Character.toString(s.charAt(j)))) {
 						currCounter = currCounter - 1;
-						currString = currString.substring(0, currString.length()-1);
-						
+						currString = currString.substring(0, currString.length() - 1);
 						if (currCounter > memCounter) {
 							memString = currString;
 							memCounter = currCounter;
 						}
-						
-						currString = "";						
+						currString = "";
 						currCounter = 0;
 						break;
 					}
-					
 					if (currCounter > memCounter) {
 						memString = currString;
 						memCounter = currCounter;
-						//currCounter = 0;
-						
 					}
 					j++;
-					
 				}
 				i++;
 				j = i + 1;
 				currCounter = 0;
-
 			}
 		}
-
 		System.out.println("memstring is: " + memString);
 		return memCounter;
 	}
@@ -86,6 +76,5 @@ public class Solution {
 		System.out.println("LCS of " + "\"" + word6 + "\"" + " is: " + func.lengthOfLongestSubstring(word6));
 		// System.out.println();
 		System.out.println("LCS of " + "\"" + word7 + "\"" + " is: " + func.lengthOfLongestSubstring(word7));
-
 	}
 }

@@ -2,23 +2,48 @@ import java.util.Stack;
 
 class Solution {
     public int reverse(int x) {
+    	Stack<String> strStack = new Stack<>();
     	
     	String xStr = Integer.toString(x);
+    	String posStr = "";
+    	String negStr = "-";
     	int ans = 0;
-    	
-    	Stack<String> strStack = new Stack<>();
-    	Stack<Integer> numStack = new Stack<>();
-    	
-    	for(int i=0; i<xStr.length()-1; i++) {
+    	boolean neg = false;
+    		
+    	for(int i=0; i<xStr.length(); i++) {
+    		if ( xStr.charAt(i) == '-') {
+    			neg = true;
+    			continue;
+    		}
+    		
     		strStack.push(Character.toString(xStr.charAt(i)));
     	}
     	
     	while(!strStack.isEmpty()) {
-    		xStr = xStr + strStack.pop();
+    		if(neg == true) {
+    			negStr = negStr + strStack.pop();
+    		}
+    		else {
+    		posStr = posStr + strStack.pop();
+    		}
     	}
     	
-    	System.out.println(xStr);
-    	ans = Integer.parseInt(xStr);
+    	if(neg == true) {
+    		if (Long.parseLong(negStr) > Integer.MAX_VALUE) {
+    			return 0;
+    		}
+    		else {
+    		ans = Integer.parseInt(negStr);
+    		}
+    	}
+    	else {
+    		if (Long.parseLong(posStr) > Integer.MAX_VALUE) {
+    			return 0;
+    		}
+    		else {
+    		ans = Integer.parseInt(posStr);
+    		}
+    	}
     	
     	return ans;
     	
@@ -29,9 +54,16 @@ class Solution {
     	
     	Solution solution = new Solution();
     	int x = 321;
+    	int x2 = 120;
+    	int x3 = -123;
+    	long x4 = 9646324351L;
+    	int x5 = 1534236469; // no overflow
     	
-    	solution.reverse(x);
-    	System.out.println(solution.reverse(x));
+    	//System.out.println(solution.reverse(x));
+    	//System.out.println(solution.reverse(x2));
+    	//System.out.println(solution.reverse(x3));
+    	System.out.println(solution.reverse(x5));
+    	
     	
     	
     	

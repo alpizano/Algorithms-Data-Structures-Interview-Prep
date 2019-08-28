@@ -29,7 +29,7 @@ class Solution {
     	}
     	
     	if(neg == true) {
-    		if (Long.parseLong(negStr) > Integer.MAX_VALUE) {
+    		if (Long.parseLong(negStr) > Integer.MAX_VALUE || Long.parseLong(negStr) < Integer.MIN_VALUE) {
     			return 0;
     		}
     		else {
@@ -37,7 +37,7 @@ class Solution {
     		}
     	}
     	else {
-    		if (Long.parseLong(posStr) > Integer.MAX_VALUE) {
+    		if (Long.parseLong(posStr) > Integer.MAX_VALUE || Long.parseLong(posStr) < Integer.MIN_VALUE) {
     			return 0;
     		}
     		else {

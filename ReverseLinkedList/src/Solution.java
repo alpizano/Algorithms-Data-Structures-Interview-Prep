@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -10,7 +12,16 @@ public class Solution {
 	
 public ListNode reverseList(ListNode head) {
 	
+	Stack<Integer> intStack = new Stack<>();
+	
+	for(ListNode cursor=head; cursor != null; cursor=cursor.next) {
+		intStack.push(cursor.val);
+	}
+	
+	
+	
 	return head;
+	
         
     }
 

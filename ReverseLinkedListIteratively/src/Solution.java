@@ -35,6 +35,14 @@ public class Solution {
 		list1.next.next = new ListNode(3);
 		list1.next.next.next = new ListNode(4);
 		list1.next.next.next.next = new ListNode(5);
+		
+		ListNode tList1 = null;
+		
+		ListNode tList2 = tList1;
+		
+		System.out.println(tList2.val);
+		
+		System.out.println("Head value is: " + list1.val);
 
 		System.out.println("Original List:");
 		for(ListNode cursor=list1; cursor != null; cursor=cursor.next) {

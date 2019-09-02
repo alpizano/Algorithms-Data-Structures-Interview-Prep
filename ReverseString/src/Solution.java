@@ -1,6 +1,15 @@
 
 public class Solution {
 
+	public static String reverse(String str) {
+	    
+	    if(str.length() < 2)
+	      return str;
+	    
+	    return reverse(str.substring(1)) + str.charAt(0);
+	  }
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -50,6 +59,11 @@ public class Solution {
 		for(int i=0; i<=charStr.length-1; i++) {
 			System.out.print(charStr[i]);
 		}
+		
+		System.out.println();
+		System.out.println(Solution.reverse("Alberto"));
+		
+		
 
 	}
 

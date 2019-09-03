@@ -3,14 +3,10 @@ public class Solution {
 	
 	public static int[] plusOne(int[] digits) {
 		
-		int lsd = digits.length-1;
-		int ans = 0;
 		boolean hasCarry = true;
 		int carry = 1;
 		
-		for(int i=digits.length-1; i>=0; i--) {
-		
-			
+		for(int i=digits.length-1; i>=0; i--) {	
 			if(hasCarry == true && digits[i] < 9) {
 				digits[i] = digits[i] + carry;
 				hasCarry = false;

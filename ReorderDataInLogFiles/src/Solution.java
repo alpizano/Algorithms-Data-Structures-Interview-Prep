@@ -2,46 +2,65 @@
 public class Solution {
 
 	public String[] reorderLogFiles(String[] logs) {
-		String[] letter_logs = new String[100];
-		String[] digit_logs = new String[100];
 
-		int let_count = 0;
-		int dig_count = 0;
+		String[] letter_logs = new String[] {};
+		String[] digit_logs = new String[] {};
+		String[] words_i = new String[] {};
+		String[] words_k = new String[] {};
+		int let_count = 1;
+		int let_start = 0;
+		int let_copy_start = 0;
+		int dig_count = 1;
+		int dig_start = 0;
+		int dig_copy_start = 0;
 
+		// Creating separate arrays for digit_logs and letter_logs
 		for (int i = 0; i <= logs.length - 1; i++) {
-			String[] words_i = logs[i].split(" ");
+			words_i = logs[i].split(" ");
 			if (Character.isLetter(words_i[1].charAt(0))) {
-				letter_logs[let_count] = logs[i];
+				letter_logs = new String[let_count];
+				letter_logs[let_start] = logs[i];
+				let_start++;
+				if (let_count > 1) {
+					for (int k = 0; let_copy_start < letter_logs.length - 1; k++) {
+						words_k = logs[k].split(" ");
+						if (Character.isLetter(words_k[1].charAt(0))) {
+							letter_logs[let_copy_start] = logs[k];
+							let_copy_start++;
+						}
+					}
+				}
+				let_copy_start = 0;
 				let_count++;
 			}
 			if (Character.isDigit(words_i[1].charAt(0))) {
-				digit_logs[dig_count] = logs[i];
+				digit_logs = new String[dig_count];
+				digit_logs[dig_start] = logs[i];
+				dig_start++;
+				if (dig_count > 1) {
+					for (int k = 0; dig_copy_start < digit_logs.length - 1; k++) {
+						words_k = logs[k].split(" ");
+						if (Character.isDigit(words_k[1].charAt(0))) {
+							digit_logs[dig_copy_start] = logs[k];
+							dig_copy_start++;
+						}
+					}
+				}
+				dig_copy_start = 0;
 				dig_count++;
 			}
 		}
 
-		String[] letter_logs2 = new String[let_count];
-		String[] digit_logs2 = new String[dig_count];
-
-		for (int i = 0; i <= letter_logs2.length - 1; i++) {
-			letter_logs2[i] = letter_logs[i];
-		}
-
-		for (int i = 0; i <= digit_logs2.length - 1; i++) {
-			digit_logs2[i] = digit_logs[i];
-		}
-
 		String temp = "";
-		String[] words_i = new String[] {};
 		int min = 0;
 		int tie_count = 0;
 
-		for (int i = 0; i <= letter_logs2.length - 1; i++) {
+		// Selection Sort algorithm
+		for (int i = 0; i <= letter_logs.length - 1; i++) {
 			min = i;
-
-			for (int j = i + 1; j <= letter_logs2.length - 1; j++) {
-				String[] words_j = letter_logs2[j].split(" ");
-				words_i = letter_logs2[min].split(" ");
+			for (int j = i + 1; j <= letter_logs.length - 1; j++) {
+				String[] words_j = letter_logs[j].split(" ");
+				words_i = letter_logs[min].split(" ");
 
 				int k = 1;
 				while (k <= words_j.length - 1 && k <= words_i.length - 1) {
@@ -61,27 +80,31 @@ public class Solution {
 						min = j;
 					}
 				}
-				if (j == letter_logs2.length - 1 && min != i) {
-					temp = letter_logs2[i];
-					letter_logs2[i] = letter_logs2[min];
-					letter_logs2[min] = temp;
+				if (j == letter_logs.length - 1 && min != i) {
+					temp = letter_logs[i];
+					letter_logs[i] = letter_logs[min];
+					letter_logs[min] = temp;
 				}
 			}
 		}
 
-		String[] combined_arr = new String[let_count + dig_count];
+		// Initializing new combined array that will be returned
+		String[] combined_arr = new String[letter_logs.length + digit_logs.length];
 
-		for (int i = 0; i <= letter_logs2.length - 1; i++) {
-			combined_arr[i] = letter_logs2[i];
-		}
+		// Copying over letter_logs and digit_logs into the new combined array
+		int j = 0;
+		for (int i = 0; i <= combined_arr.length - 1; i++) {
+			if (i <= letter_logs.length - 1) {
+				combined_arr[i] = letter_logs[i];
+			}
 
-		for (int i = 0; i <= digit_logs2.length - 1; i++) {
-			combined_arr[let_count] = digit_logs2[i];
-			let_count++;
+			if (i > letter_logs.length - 1) {
+				combined_arr[i] = digit_logs[j];
+				j++;
+			}
 		}
 
 		return combined_arr;
-
 	}
 
 	public static void main(String[] args) {

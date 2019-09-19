@@ -15,7 +15,6 @@ public class Solution {
 			}
 			num[gap] = temp_value;
 		}
-
 		return num;
 	}
 

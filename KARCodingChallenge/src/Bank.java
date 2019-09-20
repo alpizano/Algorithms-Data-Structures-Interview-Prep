@@ -18,7 +18,7 @@ public class Bank {
 		Account new_acct = new Account(owner, balance);
 		bankAccounts.add(new_acct);
 	}
-	
+
 	public void deposit(String accountName, int num) {
 		for (Account a : bankAccounts) {
 			if (a.owner.equals(accountName)) {
@@ -41,22 +41,19 @@ public class Bank {
 			}
 		}
 	}
-	
+
 	public void transfer(String fromAccountName, String toAccountName, int num) {
 		for (Account a : bankAccounts) {
 			if (a.owner.equals(fromAccountName)) {
-				if (a.balance - num >= 0) 
-				{
+				if (a.balance - num >= 0) {
 					a.balance = a.balance - num;
-				} 
+				}
 			}
-			if(a.owner.equals(toAccountName)) {
+			if (a.owner.equals(toAccountName)) {
 				a.balance = a.balance + num;
 			}
 		}
 	}
-	
-	
 
 	class Account {
 		String owner;
@@ -99,17 +96,17 @@ public class Bank {
 		for (Account a : sample_bank.bankAccounts) {
 			System.out.println("The owner of this account is: " + a.owner + " and the balance is: " + a.balance);
 		}
-		
+
 		System.out.println();
-		
+
 		// deposit using method
 		sample_bank.deposit("Javier's Account", 500);
-		
+
 		// testing deposit values
 		for (Account a : sample_bank.bankAccounts) {
 			System.out.println("The owner of this account is: " + a.owner + " and the balance is: " + a.balance);
 		}
-		
+
 		System.out.println();
 
 		// invoke withdrawal
@@ -123,23 +120,15 @@ public class Bank {
 		for (Account a : sample_bank.bankAccounts) {
 			System.out.println("The owner of this account is: " + a.owner + " and the balance is: " + a.balance);
 		}
-		
+
 		System.out.println();
-		
+
 		// invoking transfer
 		sample_bank.transfer("Matt Massom's Account", "Preston's Account", 50);
-		
+
 		// testing transfer values
-				for (Account a : sample_bank.bankAccounts) {
-					System.out.println("The owner of this account is: " + a.owner + " and the balance is: " + a.balance);
-				}
-				
+		for (Account a : sample_bank.bankAccounts) {
+			System.out.println("The owner of this account is: " + a.owner + " and the balance is: " + a.balance);
+		}
 	}
 }
-
-
-	
-
-
-
-

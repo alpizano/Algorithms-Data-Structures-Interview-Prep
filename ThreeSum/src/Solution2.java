@@ -2,9 +2,9 @@ import java.util.List;
 
 public class Solution2 {
 	
-	public List<List<Integer>> threeSum(int[] nums) {
-	
-	}
+//	public List<List<Integer>> threeSum(int[] nums) {
+//	return 
+//	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -14,7 +14,7 @@ public class Solution {
 			int temp_value = nums1[i];
 			int gap = i;
 
-			while (gap >= 1 && temp_value < nums1[gap - 1]) {
+			while (gap > 0 && temp_value < nums1[gap - 1]) {
 				nums1[gap] = nums1[gap - 1];
 				gap--;
 

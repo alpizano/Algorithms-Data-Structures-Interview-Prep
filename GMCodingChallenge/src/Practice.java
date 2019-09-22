@@ -4,7 +4,7 @@ public class Practice {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		 // int num = Integer.parseInteger(line);
+		// int num = Integer.parseInteger(line);
     	int grams = 9;
     	int robot_clone = 1;
     	int days =0;

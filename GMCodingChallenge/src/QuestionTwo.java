@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Practice2 {
+public class QuestionTwo {
 
 	public static void main(String[] args) {
 		// Input String

@@ -20,7 +20,6 @@ public class Solution {
 	}
 
 	public int romanToInt(String s) {
-		String output = "";
 		int sum = 0;
 
 		for (int i = 0; i <= s.length() - 1; i++) {
@@ -47,7 +46,6 @@ public class Solution {
 			}
 		}
 		return sum;
-
 	}
 
 	public static void main(String[] args) {
@@ -66,8 +64,5 @@ public class Solution {
 		System.out.println(sol.romanToInt(test2));
 		System.out.println(sol.romanToInt(test3));
 		System.out.println(sol.romanToInt(test4));
-		
-
 	}
-
 }

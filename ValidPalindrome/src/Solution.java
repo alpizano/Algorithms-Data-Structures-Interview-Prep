@@ -38,11 +38,14 @@ public class Solution {
 
 		String s1 = "A man, a plan, a canal: Panama";
 		String s2 = "race a car";
+		int[] deez = new int[] {3,5,6};
 
 		Solution test = new Solution();
 
 		System.out.println(test.isPalindrome(s1));
 		System.out.println(test.isPalindrome(s2));
+		
+		System.out.println(deez);
 
 	}
 

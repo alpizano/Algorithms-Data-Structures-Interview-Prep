@@ -23,23 +23,23 @@ public class Solution {
 		int sum = 0;
 
 		for (int i = 0; i <= s.length() - 1; i++) {
-			if (i < s.length() - 1 && Solution.convertDigit(String.valueOf(s.charAt(i))) == 1
-					&& (Solution.convertDigit(String.valueOf(s.charAt(i + 1))) == 5
-							|| Solution.convertDigit(String.valueOf(s.charAt(i + 1))) == 10)) {
-				sum = sum + (Solution.convertDigit(String.valueOf(s.charAt(i + 1)))
-						- Solution.convertDigit(String.valueOf(s.charAt(i))));
+			if (i < s.length() - 1 && convertDigit(String.valueOf(s.charAt(i))) == 1
+					&& (convertDigit(String.valueOf(s.charAt(i + 1))) == 5
+							|| convertDigit(String.valueOf(s.charAt(i + 1))) == 10)) {
+				sum = sum + (convertDigit(String.valueOf(s.charAt(i + 1)))
+						- convertDigit(String.valueOf(s.charAt(i))));
 				i++;
-			} else if (i < s.length() - 1 && Solution.convertDigit(String.valueOf(s.charAt(i))) == 10
-					&& (Solution.convertDigit(String.valueOf(s.charAt(i + 1))) == 50
-							|| Solution.convertDigit(String.valueOf(s.charAt(i + 1))) == 100)) {
-				sum = sum + (Solution.convertDigit(String.valueOf(s.charAt(i + 1)))
-						- Solution.convertDigit(String.valueOf(s.charAt(i))));
+			} else if (i < s.length() - 1 && convertDigit(String.valueOf(s.charAt(i))) == 10
+					&& (convertDigit(String.valueOf(s.charAt(i + 1))) == 50
+							|| convertDigit(String.valueOf(s.charAt(i + 1))) == 100)) {
+				sum = sum + (convertDigit(String.valueOf(s.charAt(i + 1)))
+						- convertDigit(String.valueOf(s.charAt(i))));
 				i++;
-			} else if (i < s.length() - 1 && Solution.convertDigit(String.valueOf(s.charAt(i))) == 100
-					&& (Solution.convertDigit(String.valueOf(s.charAt(i + 1))) == 500
-							|| Solution.convertDigit(String.valueOf(s.charAt(i + 1))) == 1000)) {
-				sum = sum + (Solution.convertDigit(String.valueOf(s.charAt(i + 1)))
-						- Solution.convertDigit(String.valueOf(s.charAt(i))));
+			} else if (i < s.length() - 1 && convertDigit(String.valueOf(s.charAt(i))) == 100
+					&& (convertDigit(String.valueOf(s.charAt(i + 1))) == 500
+							|| convertDigit(String.valueOf(s.charAt(i + 1))) == 1000)) {
+				sum = sum + (convertDigit(String.valueOf(s.charAt(i + 1)))
+						- convertDigit(String.valueOf(s.charAt(i))));
 				i++;
 			} else {
 				sum = sum + Solution.convertDigit(String.valueOf(s.charAt(i)));

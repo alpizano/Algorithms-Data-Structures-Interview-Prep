@@ -14,6 +14,7 @@ public class Solution {
 		}
 
 		int i = 0;
+		int match_count =0;
 
 		for (int word_count = 0; word_count+1 <= words.length - 1; word_count++) {
 			while (i <= words[word_count].length() - 1 && i <= words[word_count+1].length() - 1) {
@@ -24,6 +25,18 @@ public class Solution {
 				else if(map.get(String.valueOf(words[word_count].charAt(i))) > map.get(String.valueOf(words[word_count + 1].charAt(i)))) {
 					//sorted = false;
 					return sorted = false;
+				}
+				else {
+					match_count++;
+					if(match_count == words[word_count].length() || match_count == words[word_count+1].length()) {
+						if(words[word_count].length()-1 > words[word_count+1].length()-1) {
+							return sorted = false;
+						}
+//						else {
+//							return sorted = true;
+//						}
+						
+					}
 				}
 
 				i++;
